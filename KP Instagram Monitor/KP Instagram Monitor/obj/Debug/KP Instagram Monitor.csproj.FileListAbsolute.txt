@@ -20,3 +20,4 @@ c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\
 c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.pdb
 c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\XapCacheFile.xml
 C:\Users\Herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.csprojResolveAssemblyReference.cache
+C:\Users\Herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\Login.g.cs

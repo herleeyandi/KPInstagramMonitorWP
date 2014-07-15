@@ -8,23 +8,29 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Text;
+using System.IO.IsolatedStorage;
 
 namespace KP_Instagram_Monitor
 {
     public partial class Content : PhoneApplicationPage
     {
-        public String selfdata = "{<meta<:{<code<:200},<data<:{<username<:<herleeyandi<,<bio<:<Nothing<,<website<:<<,<profile_picture<:<http:://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<full_name<:<Herleeyandi Markoni<,<counts<:{<media<:3,<followed_by<:67,<follows<:569},<id<:<1418716729<}}";
-        public String postdata = "{<pagination<:{},<meta<:{<code<:200},<data<:[{<attribution<:null,<tags<:[],<type<:<image<,<location<:null,<comments<:{<count<:0,<data<:[]},<filter<:<Normal<,<created_time<:<1405098373<,<link<:<http://instagram.com/p/qUYswzGwmd/<,<likes<:{<count<:5,<data<:[{<username<:<vinaarysthadewi<,<profile_picture<:<http://photos-d.ak.instagram.com/hphotos-ak-xfp1/10431862_303640103145395_804855832_a.jpg<,<id<:<398123328<,<full_name<:<Vina Arystha<},{<username<:<alvinlievedana_9021<,<profile_picture<:<http://photos-a.ak.instagram.com/hphotos-ak-xpa1/10483487_230343137175256_1350544426_a.jpg<,<id<:<940553674<,<full_name<:<Alvin Lie Vedanau00ae<},{<username<:<nyomanwidiyana<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xap1/10549641_1437292429867226_1237747226_a.jpg<,<id<:<25607860<,<full_name<:<I Nyoman Widiyana<},{<username<:<cayunaita<,<profile_picture<:<http://images.ak.instagram.com/profiles/profile_212934343_75sq_1398402298.jpg<,<id<:<212934343<,<full_name<:<Candra Yuni Aita<}]},<images<:{<low_resolution<:{<url<:<http://scontent-b.cdninstagram.com/hphotos-xfp1/t51.2885-15/10471888_488230307987018_1801831538_a.jpg<,<width<:306,<height<:306},<thumbnail<:{<url<:<http://scontent-b.cdninstagram.com/hphotos-xfp1/t51.2885-15/10471888_488230307987018_1801831538_s.jpg<,<width<:150,<height<:150},<standard_resolution<:{<url<:<http://scontent-b.cdninstagram.com/hphotos-xfp1/t51.2885-15/10471888_488230307987018_1801831538_n.jpg<,<width<:640,<height<:640}},<users_in_photo<:[],<caption<:{<created_time<:<1405098373<,<text<:<Saatnya coding ud83dude01<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<762342866597644876<},<user_has_liked<:false,<id<:<762342866102716829_1418716729<,<user<:{<username<:<herleeyandi<,<website<:<<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<full_name<:<Herleeyandi Markoni<,<bio<:<<,<id<:<1418716729<}},{<attribution<:null,<tags<:[],<type<:<image<,<location<:null,<comments<:{<count<:7,<data<:[{<created_time<:<1404681057<,<text<:<Hha keren<,<from<:{<username<:<zuhriyansauqi<,<profile_picture<:<http://images.ak.instagram.com/profiles/profile_462170837_75sq_1373622508.jpg<,<id<:<462170837<,<full_name<:<Zuhriyan Sauqi<},<id<:<758842171286292547<},{<created_time<:<1404687808<,<text<:<Asik keren yan haha. Tulisan nokia di depan juga diganti donk ya?<,<from<:{<username<:<swhkn<,<profile_picture<:<http://photos-a.ak.instagram.com/hphotos-ak-xpf1/10261111_692873607444704_1993192415_a.jpg<,<id<:<46604024<,<full_name<:<swhkn<},<id<:<758898803936528976<},{<created_time<:<1404713934<,<text<:<Cieee punya insta cieeee<,<from<:{<username<:<yoza1404<,<profile_picture<:<http://images.ak.instagram.com/profiles/profile_173630189_75sq_1389780726.jpg<,<id<:<173630189<,<full_name<:<Adrianus Yoza  Aprilio<},<id<:<759117963811556157<},{<created_time<:<1404818449<,<text<:<@swhkn iya cuma belum saya foto.<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<759994692021192832<},{<created_time<:<1404818468<,<text<:<@yoza1404  iya sih....<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<759994857419376780<},{<created_time<:<1404822043<,<text<:<@swhkn foto depannya ada di profilku, @herleeyandi ayo nonton cak lenteng.<,<from<:{<username<:<yoza1404<,<profile_picture<:<http://images.ak.instagram.com/profiles/profile_173630189_75sq_1389780726.jpg<,<id<:<173630189<,<full_name<:<Adrianus Yoza  Aprilio<},<id<:<760024848462973204<},{<created_time<:<1404827563<,<text<:<@yoza1404 kp durung mari ud83dude10<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<760071146817915249<}]},<filter<:<Normal<,<created_time<:<1404675899<,<link<:<http://instagram.com/p/qHy5TJmwn5/<,<likes<:{<count<:4,<data<:[{<username<:<swhkn<,<profile_picture<:<http://photos-a.ak.instagram.com/hphotos-ak-xpf1/10261111_692873607444704_1993192415_a.jpg<,<id<:<46604024<,<full_name<:<swhkn<},{<username<:<alvinlievedana_9021<,<profile_picture<:<http://photos-a.ak.instagram.com/hphotos-ak-xpa1/10483487_230343137175256_1350544426_a.jpg<,<id<:<940553674<,<full_name<:<Alvin Lie Vedanau00ae<},{<username<:<yoza1404<,<profile_picture<:<http://images.ak.instagram.com/profiles/profile_173630189_75sq_1389780726.jpg<,<id<:<173630189<,<full_name<:<Adrianus Yoza  Aprilio<},{<username<:<cayunaita<,<profile_picture<:<http://images.ak.instagram.com/profiles/profile_212934343_75sq_1398402298.jpg<,<id<:<212934343<,<full_name<:<Candra Yuni Aita<}]},<images<:{<low_resolution<:{<url<:<http://scontent-a.cdninstagram.com/hphotos-xpf1/t51.2885-15/10483529_1450010288587570_804268532_a.jpg<,<width<:306,<height<:306},<thumbnail<:{<url<:<http://scontent-a.cdninstagram.com/hphotos-xpf1/t51.2885-15/10483529_1450010288587570_804268532_s.jpg<,<width<:150,<height<:150},<standard_resolution<:{<url<:<http://scontent-a.cdninstagram.com/hphotos-xpf1/t51.2885-15/10483529_1450010288587570_804268532_n.jpg<,<width<:640,<height<:640}},<users_in_photo<:[],<caption<:{<created_time<:<1404675899<,<text<:<Say hello to Microsoft Mobility Lab ITS<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<758798902712010869<},<user_has_liked<:false,<id<:<758798902133197305_1418716729<,<user<:{<username<:<herleeyandi<,<website<:<<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<full_name<:<Herleeyandi Markoni<,<bio<:<<,<id<:<1418716729<}},{<attribution<:null,<tags<:[],<type<:<image<,<location<:null,<comments<:{<count<:3,<data<:[{<created_time<:<1404804477<,<text<:<@herleeyandi keren kak andik, ajarkan saya kak hahaha<,<from<:{<username<:<ipungne<,<profile_picture<:<http://photos-d.ak.instagram.com/hphotos-ak-xpf1/10523525_658079507614587_103734143_a.jpg<,<id<:<459006019<,<full_name<:<pw<},<id<:<759877494132902587<},{<created_time<:<1404818384<,<text<:<@ipungne  ok<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<759994146862336111<},{<created_time<:<1404818630<,<text<:<@ipungne tp ni lagi siap2 sambut windows phone 8.1<,<from<:{<username<:<herleeyandi<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<id<:<1418716729<,<full_name<:<Herleeyandi Markoni<},<id<:<759996213999896763<}]},<filter<:<Normal<,<created_time<:<1404674132<,<link<:<http://instagram.com/p/qHvhg6mwiJ/<,<likes<:{<count<:3,<data<:[{<username<:<fheragen<,<profile_picture<:<http://photos-f.ak.instagram.com/hphotos-ak-xap1/928293_433231063486629_1101988850_a.jpg<,<id<:<749671849<,<full_name<:<live is journey<},{<username<:<alvinlievedana_9021<,<profile_picture<:<http://photos-a.ak.instagram.com/hphotos-ak-xpa1/10483487_230343137175256_1350544426_a.jpg<,<id<:<940553674<,<full_name<:<Alvin Lie Vedanau00ae<},{<username<:<ipungne<,<profile_picture<:<http://photos-d.ak.instagram.com/hphotos-ak-xpf1/10523525_658079507614587_103734143_a.jpg<,<id<:<459006019<,<full_name<:<pw<}]},<images<:{<low_resolution<:{<url<:<http://scontent-a.cdninstagram.com/hphotos-xaf1/t51.2885-15/10499298_771812776196645_698647625_a.jpg<,<width<:306,<height<:306},<thumbnail<:{<url<:<http://scontent-a.cdninstagram.com/hphotos-xaf1/t51.2885-15/10499298_771812776196645_698647625_s.jpg<,<width<:150,<height<:150},<standard_resolution<:{<url<:<http://scontent-a.cdninstagram.com/hphotos-xaf1/t51.2885-15/10499298_771812776196645_698647625_n.jpg<,<width<:640,<height<:640}},<users_in_photo<:[],<caption<:null,<user_has_liked<:false,<id<:<758784073506949257_1418716729<,<user<:{<username<:<herleeyandi<,<website<:<<,<profile_picture<:<http://photos-c.ak.instagram.com/hphotos-ak-xpf1/10471918_690052684399994_553299805_a.jpg<,<full_name<:<Herleeyandi Markoni<,<bio<:<<,<id<:<1418716729<}}]}";
+        public static String selfdata = "";
+        public static String postdata = ""; 
         public String freshlike = "";
         public String freshcaption = "";
         public String freshimage = "";
         public String rewardMakan = "Reward Makan Gratis : \n";
         public String rewardMinum = "Reward Minum Gratis : \n";
+        private readonly string apiAccessToken;
 
         
         public Content()
         {
             InitializeComponent();
+            if (IsolatedStorageSettings.ApplicationSettings.Contains("access_token"))
+            {
+                this.apiAccessToken = IsolatedStorageSettings.ApplicationSettings["access_token"].ToString();
+            }
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -37,12 +43,47 @@ namespace KP_Instagram_Monitor
 
         }
 
+        private void RefreshData()
+        {
+            WebClient X = new WebClient();
+            X.DownloadStringAsync(new Uri("https://api.instagram.com/v1/users/self?access_token=" + apiAccessToken));
+            X.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadStringCallback);
+            WebClient Y = new WebClient();
+            Y.DownloadStringAsync(new Uri("https://api.instagram.com/v1/users/self/media/recent?access_token=" + apiAccessToken));
+            Y.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadStringCallback2);
+            System.Diagnostics.Debug.WriteLine(apiAccessToken);
+            GetSelf();
+            GetPost();
+        }
+
+        private static void DownloadStringCallback(Object sender, DownloadStringCompletedEventArgs e)
+        {
+            // If the request was not canceled and did not throw 
+            // an exception, display the resource. 
+            if (!e.Cancelled && e.Error == null)
+            {
+                selfdata = (string)e.Result;
+            }
+        }
+
+        private static void DownloadStringCallback2(Object sender, DownloadStringCompletedEventArgs e)
+        {
+            // If the request was not canceled and did not throw 
+            // an exception, display the resource. 
+            if (!e.Cancelled && e.Error == null)
+            {
+                postdata = (string)e.Result;
+            }
+        }
+
         private void GetSelf()
         {
-            selfdata.Replace('"', '<');
-            StringBuilder temp = new StringBuilder(selfdata);
+            String selfdata2 = selfdata;
+            System.Diagnostics.Debug.WriteLine(selfdata2);
+            StringBuilder temp = new StringBuilder(selfdata2);
             temp.Replace("{", "");
             temp.Replace("}", "");
+            temp.Replace("\"", "<");
             temp.Replace("<,<", "\n");
             temp.Replace("<meta<:<code<:200,<data<:<", "");
             temp.Replace("username<:<", "Username : ");
@@ -68,10 +109,12 @@ namespace KP_Instagram_Monitor
             String templikes = "";
             String tempimages = "";
             String tempcaption = "";
-            postdata.Replace('"', '<');
-            StringBuilder temp = new StringBuilder(postdata);
+            String postdata2 = postdata;
+            System.Diagnostics.Debug.WriteLine(postdata2);
+            StringBuilder temp = new StringBuilder(postdata2);
             temp.Replace("{", "");
             temp.Replace("}", "");
+            temp.Replace("\"", "<");
             temp.Replace("<attribution<", "#");
             temp.Replace("<comments<:", "$<comments<:");
             temp.Replace("<likes<:", "$<likes<:");
@@ -293,8 +336,7 @@ namespace KP_Instagram_Monitor
 
         private void loaddata_Click(object sender, RoutedEventArgs e)
         {
-            GetSelf();
-            GetPost();
+            RefreshData();
         }
     }
 }

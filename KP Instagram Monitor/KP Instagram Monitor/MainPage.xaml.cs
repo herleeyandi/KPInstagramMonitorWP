@@ -24,7 +24,7 @@ namespace KP_Instagram_Monitor
 
         private void start_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Content.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar
