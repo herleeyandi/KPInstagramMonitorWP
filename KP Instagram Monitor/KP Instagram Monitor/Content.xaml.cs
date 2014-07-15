@@ -112,9 +112,7 @@ namespace KP_Instagram_Monitor
                 else
                     biodata = biodata + i;
             }
-            System.Diagnostics.Debug.WriteLine(linkfoto);
-            //IsolatedStorageSettings.ApplicationSettings["link_foto_diri"] = linkfoto;
-           
+            System.Diagnostics.Debug.WriteLine(linkfoto);          
             IsolatedStorageSettings.ApplicationSettings.Save();
             BitmapImage licoriceImage =new BitmapImage(new Uri(linkfoto, UriKind.RelativeOrAbsolute));
             selfphoto.Source = licoriceImage;
@@ -294,13 +292,48 @@ namespace KP_Instagram_Monitor
             String[] perimages = freshimage.Split('#');
             String[] percaption = freshcaption.Split('#');
             String[] perlike = readylike.Split('#');
+
             int i;
             for (i = 0; i < perimages.Count(); i++ )
             {
+                StringBuilder templike = new StringBuilder(perlike[i]);
+                templike.Replace(",", ", ");
                 if(percaption[i]=="null")
                     final = final + percaption[i] + "\n" + perimages[i] + "\n Like : " + perlike[i] + "\n\n";
                 else
-                    final = final + percaption[i] + perimages[i] + "\n Like : " + perlike[i] + "\n\n";
+                {
+                    
+                    StringBuilder tempcaption = new StringBuilder(percaption[i]);
+                    tempcaption.Replace("Created Time : ", "$");
+                    tempcaption.Replace("Isi", "$Isi");
+                    String waktu = "";
+                    String created = "1405098373";
+                    String text = "";
+                    String[] pisahcaption = tempcaption.ToString().Split('$');
+                    foreach(String z in pisahcaption)
+                    {
+                        if (z != "")
+                        {
+                            if (z.Contains("Isi"))
+                                text = z;
+                            else
+                            {
+                                created = z;
+                                int timediistagram;
+                                System.Diagnostics.Debug.WriteLine("INI CREATEDNYA " + created);
+                                timediistagram = Convert.ToInt32(z);
+                                DateTime unixYear0 = new DateTime(1970, 1, 1);
+                                long unixTimeStampInTicks = timediistagram * TimeSpan.TicksPerSecond;
+                                DateTime dtUnix = new DateTime(unixYear0.Ticks + unixTimeStampInTicks);
+                                waktu = dtUnix.ToString("dd-MM-yyyy");
+                            }
+                        }
+                    }
+                    
+
+                    final = final + "Waktu Pembuatan : "+waktu + "\n"+ text + "Like : " + templike.ToString() + "\n\n";
+                }
+                    
             }
             StringBuilder temp = new StringBuilder(final);
             temp.Replace("Like : ," , "Like : ");
