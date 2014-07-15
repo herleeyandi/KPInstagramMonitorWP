@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Text;
 using System.IO.IsolatedStorage;
+using System.Windows.Media.Imaging;
 
 namespace KP_Instagram_Monitor
 {
@@ -98,7 +99,27 @@ namespace KP_Instagram_Monitor
             temp.Replace(",<id<:<", "\nID :");
             temp.Replace("<", "");
             temp.Replace("http::", "http:");
-            datadiri.Text = temp.ToString();
+            temp.Replace("\\","");
+            temp.Replace("Pofile Picture : ", "$");
+            temp.Replace("Full Name : ", "$Full Name : ");
+            String biodata = "";
+            String linkfoto = "";
+            String[] breakselfdata = temp.ToString().Split('$');
+            foreach(String i in breakselfdata)
+            {
+                if (i.Contains("http"))
+                    linkfoto = i;
+                else
+                    biodata = biodata + i;
+            }
+            System.Diagnostics.Debug.WriteLine(linkfoto);
+            //IsolatedStorageSettings.ApplicationSettings["link_foto_diri"] = linkfoto;
+           
+            IsolatedStorageSettings.ApplicationSettings.Save();
+            BitmapImage licoriceImage =new BitmapImage(new Uri(linkfoto, UriKind.RelativeOrAbsolute));
+            selfphoto.Source = licoriceImage;
+             
+            datadiri.Text = biodata;
 
         } 
 

@@ -21,7 +21,8 @@
             <phone:PanoramaItem Header="self">
                 <Grid>
                     <Button x:Name="loaddata" Content="Load Data" HorizontalAlignment="Left" Height="94" Margin="7,0,0,0" VerticalAlignment="Top" Width="387" Background="#FF517FA4" Click="loaddata_Click"/>
-                    <TextBlock x:Name="datadiri" HorizontalAlignment="Left" Margin="28,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="366"/>
+                    <TextBlock x:Name="datadiri" HorizontalAlignment="Left" Margin="28,283,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="366"/>
+                    <Image x:Name="selfphoto" HorizontalAlignment="Left" Height="157" Margin="61,94,0,0" VerticalAlignment="Top" Width="175" Source="halo"/>
                 </Grid>
             </phone:PanoramaItem>
 
