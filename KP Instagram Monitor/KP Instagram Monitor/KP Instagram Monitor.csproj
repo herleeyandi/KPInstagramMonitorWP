@@ -96,6 +96,7 @@
     <Compile Include="Content.xaml.cs">
       <DependentUpon>Content.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatabasePost.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -139,22 +140,16 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\IconicTileSmall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png" />
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png" />
+    <Content Include="Assets\Tiles\IconicTileSmall.png" />
+    <Content Include="FlipCycleTileLarge.png" />
+    <Content Include="IconicTileMediumLarge.png" />
     <Content Include="Images\appbar.close.png" />
+    <Content Include="Images\appbar.home.png" />
+    <Content Include="Images\logo app kp.png" />
     <Content Include="Images\questionmark.png" />
   </ItemGroup>
   <ItemGroup>

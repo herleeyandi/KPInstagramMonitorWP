@@ -23,6 +23,7 @@ namespace KP_Instagram_Monitor
         public String rewardMakan = "Reward Makan Gratis : \n";
         public String rewardMinum = "Reward Minum Gratis : \n";
         private readonly string apiAccessToken;
+        DatabasePostContext db;
 
         
         public Content()
@@ -33,6 +34,7 @@ namespace KP_Instagram_Monitor
                 this.apiAccessToken = IsolatedStorageSettings.ApplicationSettings["access_token"].ToString();
             }
         }
+
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
@@ -53,8 +55,7 @@ namespace KP_Instagram_Monitor
             Y.DownloadStringAsync(new Uri("https://api.instagram.com/v1/users/self/media/recent?access_token=" + apiAccessToken));
             Y.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadStringCallback2);
             System.Diagnostics.Debug.WriteLine(apiAccessToken);
-            GetSelf();
-            GetPost();
+            
         }
 
         private static void DownloadStringCallback(Object sender, DownloadStringCompletedEventArgs e)
@@ -164,22 +165,12 @@ namespace KP_Instagram_Monitor
                     }
                 }
             }
-            //System.Diagnostics.Debug.WriteLine("Comments : "+tempcomments);
-            //System.Diagnostics.Debug.WriteLine("Likes : " + templikes);
-            //System.Diagnostics.Debug.WriteLine("Images : " + tempimages);
-            //System.Diagnostics.Debug.WriteLine("Caption : " + tempcaption);
+            
             freshimage = MutateImages(tempimages);
             freshlike = MutateLike(templikes);
             freshcaption = MutateCaption(tempcaption);
-            /*
-            System.Diagnostics.Debug.WriteLine(freshimage);
-            System.Diagnostics.Debug.WriteLine("======================================================================================");
-            System.Diagnostics.Debug.WriteLine(freshcaption);
-            System.Diagnostics.Debug.WriteLine("======================================================================================");
-            System.Diagnostics.Debug.WriteLine(freshlike);
-            System.Diagnostics.Debug.WriteLine("======================================================================================");
-            */
-            allpost.Text = ConcatePostDetail();
+           
+            String temporary = ConcatePostDetail();
             liketeks.Text = GetLikeData();
             allreward.Text = rewardMakan + "\n" + rewardMinum;
         }
@@ -297,12 +288,15 @@ namespace KP_Instagram_Monitor
             for (i = 0; i < perimages.Count(); i++ )
             {
                 StringBuilder templike = new StringBuilder(perlike[i]);
-                templike.Replace(",", ", ");
-                if(percaption[i]=="null")
-                    final = final + percaption[i] + "\n" + perimages[i] + "\n Like : " + perlike[i] + "\n\n";
+                templike.Replace(",", ", ");                
+                if (percaption[i] == "null")
+                {
+                    final = final + percaption[i] + "\nLike : " + perlike[i] + "\n#";
+                    //MasukanData(tempimages.ToString(), final);
+                }
                 else
                 {
-                    
+
                     StringBuilder tempcaption = new StringBuilder(percaption[i]);
                     tempcaption.Replace("Created Time : ", "$");
                     tempcaption.Replace("Isi", "$Isi");
@@ -310,7 +304,7 @@ namespace KP_Instagram_Monitor
                     String created = "1405098373";
                     String text = "";
                     String[] pisahcaption = tempcaption.ToString().Split('$');
-                    foreach(String z in pisahcaption)
+                    foreach (String z in pisahcaption)
                     {
                         if (z != "")
                         {
@@ -329,15 +323,31 @@ namespace KP_Instagram_Monitor
                             }
                         }
                     }
-                    
 
-                    final = final + "Waktu Pembuatan : "+waktu + "\n"+ text + "Like : " + templike.ToString() + "\n\n";
+
+                    final = final + "Waktu Pembuatan : " + waktu + "\n" + text + "Like : " + templike.ToString() + "\n#";
+                    //MasukanData(tempimages.ToString(), final);
+                   
                 }
                     
             }
             StringBuilder temp = new StringBuilder(final);
             temp.Replace("Like : ," , "Like : ");
             final = temp.ToString();
+            String[] finalperpost = final.Split('#');
+            foreach (String ab in finalperpost)
+            {
+                System.Diagnostics.Debug.WriteLine("data finalperpost : " + ab);
+            }
+            int j;
+            for (j = 0; j < perimages.Count(); j++)
+            {
+                StringBuilder tempimages = new StringBuilder(perimages[j]);
+                tempimages.Replace("\\", "");
+                tempimages.Replace("Link Gambar : ", "");
+                MasukanData(tempimages.ToString(), finalperpost[j]);
+                System.Diagnostics.Debug.WriteLine("data tempimages : " + tempimages);
+            }
             return final;
         }
 
@@ -388,9 +398,53 @@ namespace KP_Instagram_Monitor
             return final;
         }
 
+
+        private void MasukanData(String n, String f)
+        {
+            DatabasePost _library = new DatabasePost
+            {
+                link = n,
+                detail = f,
+            };
+            db.postdetail.InsertOnSubmit(_library);
+            db.SubmitChanges();
+        }
+
         private void loaddata_Click(object sender, RoutedEventArgs e)
         {
-            RefreshData();
+            rewardMakan = "Reward Makan Gratis : \n";
+            rewardMinum = "Reward Minum Gratis : \n";
+            db = new DatabasePostContext("isostore:/DatabasePost.sdf");
+            
+            if(selfdata=="" || postdata=="")
+            {
+                RefreshData();
+            }
+            else
+            {
+                
+                if (!db.DatabaseExists())
+                {
+                    db.CreateDatabase();
+                }
+                var deleteOrderDetails = from details in db.postdetail select details;
+
+                foreach (var detail in deleteOrderDetails)
+                {
+                    db.postdetail.DeleteOnSubmit(detail);
+                }
+                db.SubmitChanges();
+               
+                GetSelf();
+                GetPost();
+                ListBox1.ItemsSource = db.postdetail.ToList();
+            }
+           
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

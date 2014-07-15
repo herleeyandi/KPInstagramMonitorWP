@@ -11,10 +11,10 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="#FF517FA4">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -46,8 +46,9 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button x:Name="start" Content="START" HorizontalAlignment="Left" Height="121" Margin="64,200,0,0" VerticalAlignment="Top" Width="336" Click="start_Click"/>
-
+            <Button x:Name="start" Content="START HERE" HorizontalAlignment="Left" Height="121" Margin="64,490,0,0" VerticalAlignment="Top" Width="336" Click="start_Click"/>
+            <Image x:Name="logo" HorizontalAlignment="Left" Height="219" Margin="100,130,0,0" VerticalAlignment="Top" Width="278" Source="/Images/logo app kp.png"/>
+            <ProgressBar x:Name="progressopening" HorizontalAlignment="Left" Height="38" Margin="10,382,0,0" VerticalAlignment="Top" Width="422"/>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
