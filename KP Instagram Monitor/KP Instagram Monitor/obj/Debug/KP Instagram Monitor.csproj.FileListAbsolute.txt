@@ -1,0 +1,22 @@
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Assets\ApplicationIcon.png
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Assets\Tiles\IconicTileSmall.png
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\KP Instagram Monitor.dll
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\KP Instagram Monitor.pdb
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\AppManifest.xaml
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Properties\WMAppManifest.xml
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\KP_Instagram_Monitor_Debug_AnyCPU.xap
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\Bin\Debug\Microsoft.Phone.Controls.dll
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\App.g.cs
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\Content.g.cs
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\MainPage.g.cs
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.g.resources
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP_Instagram_Monitor.Resources.AppResources.resources
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.csproj.GenerateResource.Cache
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.dll
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.pdb
+c:\users\herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\XapCacheFile.xml
+C:\Users\Herleeyandi\documents\visual studio 2013\Projects\KP Instagram Monitor\KP Instagram Monitor\obj\Debug\KP Instagram Monitor.csprojResolveAssemblyReference.cache

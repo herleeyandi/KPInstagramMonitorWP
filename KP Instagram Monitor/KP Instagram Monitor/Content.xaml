@@ -1,0 +1,54 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="KP_Instagram_Monitor.Content"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <phone:Panorama x:Name="konten" Title="" Foreground="Black">
+
+            <!--Panorama item one-->
+            <phone:PanoramaItem Header="self">
+                <Grid>
+                    <Button x:Name="loaddata" Content="Load Data" HorizontalAlignment="Left" Height="94" Margin="7,0,0,0" VerticalAlignment="Top" Width="387" Background="#FF517FA4" Click="loaddata_Click"/>
+                    <TextBlock x:Name="datadiri" HorizontalAlignment="Left" Margin="28,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="366"/>
+                </Grid>
+            </phone:PanoramaItem>
+
+            <!--Panorama item two-->
+            <phone:PanoramaItem Header="post">
+                <Grid>
+                    <TextBlock x:Name="allpost" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="368"/>
+                </Grid>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="like data">
+                <Grid>
+                    <TextBlock x:Name="liketeks" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410"/>
+                </Grid>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="reward">
+                <Grid>
+                    <TextBlock x:Name="allreward" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420"/>
+                </Grid>
+            </phone:PanoramaItem>
+        </phone:Panorama>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" BackgroundColor="#517FA4">
+            <shell:ApplicationBarIconButton IconUri="/Images/questionmark.png" Text="Help" Click="ApplicationBarIconButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.close.png" Text="Logout" Click="ApplicationBarIconButton_Click_1"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
